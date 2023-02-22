@@ -11,6 +11,10 @@ require_once 'Controladores/pagosC.php';
 require_once 'Controladores/pasajeC.php';
 require_once 'Controladores/ObjetosPerC.php';
 
+require_once 'Controladores/procesoInscripcionC.php';
+
+
+
 
 
 require_once 'Modelos/rutasM.php';
@@ -23,6 +27,8 @@ require_once 'Modelos/vehiculoM.php';
 require_once 'Modelos/pagosM.php';
 require_once 'Modelos/pasajeM.php';
 require_once 'Modelos/ObjetosPerM.php';
+
+require_once 'Modelos/procesoInscripcionM.php';
 
 include 'Vistas/plantilla.php';
 

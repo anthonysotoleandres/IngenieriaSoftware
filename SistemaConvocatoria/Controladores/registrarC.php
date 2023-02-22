@@ -1,4 +1,4 @@
-<?php  // registrar usuarios
+<?php  // registrar usuario CONVOCATORIA
 class registrarC {
     function __construct(){
         $this->registrarM = new registrarM();
@@ -6,7 +6,7 @@ class registrarC {
 
     public function registrarUsuarioC(){
         if(isset($_POST['nombreRU'])){
-            if($_POST["passwordRU"] === $_POST["ConfipasswordRU"] and $_POST['perfilRU']=="socio"){
+            if($_POST["passwordRU"] === $_POST["ConfipasswordRU"] and $_POST['perfilRU']=="docente"){
 
                 $datosC =array();
                 $datosC['nombre'] = $_POST['nombreRU'];
@@ -15,33 +15,49 @@ class registrarC {
                 $datosC['contraseña'] = $_POST['passwordRU'];
                 $datosC['email'] = $_POST['emailRU'];
                 $datosC['perfil'] = $_POST['perfilRU'];
+                $datosC['EscuelaProfesional_idEscuelaProfesional'] = $_POST['escuelaRU'];
 
     
                 $resultado = $this->registrarM->registrarUsuariosM($datosC);
-             
-                header('location: index.php?ruta=RegistroSocio');
+                
+                header('location: index.php?ruta=registrar');
 
 
             }
-            if($_POST["passwordRU"] === $_POST["ConfipasswordRU"] and $_POST['perfilRU']=="administrador"){
 
-                    $datosC =array();
-                    $datosC['nombre'] = $_POST['nombreRU'];
-                    $datosC['apellido'] = $_POST['apellidoRU'];
-                    $datosC['usuario'] = $_POST['usernameRU'];
-                    $datosC['contraseña'] = $_POST['passwordRU'];
-                    $datosC['email'] = $_POST['emailRU'];
-                    $datosC['perfil'] = $_POST['perfilRU'];
-    
-        
-                    $resultado = $this->registrarM->registrarUsuarios1M($datosC);
-                 
-                    header('location: index.php?ruta=RegistroSocio');  
-                }
         }
         return true;
         
     }
+    //REGISTRAR JURADO
+    public function registrarJuradoC(){
+        if(isset($_POST['nombreRJ'])){
+            if($_POST["passwordRJ"] === $_POST["ConfipasswordRJ"] and $_POST['perfilRJ']=="jurado"){
+
+                $datosC =array();
+                $datosC['nombre'] = $_POST['nombreRJ'];
+                $datosC['apellido'] = $_POST['apellidoRJ'];
+                $datosC['dni'] = $_POST['dniRJ'];
+                $datosC['tipo_profesion'] = $_POST['profesionRJ'];
+                $datosC['sexo'] = $_POST['generoRJ'];
+                $datosC['usuario'] = $_POST['usuarioRJ'];
+                $datosC['contraseña'] = $_POST['passwordRJ'];
+                $datosC['email'] = $_POST['emailRJ'];
+                $datosC['perfil'] = $_POST['perfilRJ'];
+                $datosC['EscuelaProfesional_idEscuelaProfesional'] = $_POST['escuelaRJ'];
+
+                $resultado = $this->registrarM->registrarJuradoC($datosC);
+                
+                
+
+
+            }
+
+        }
+        return true;
+        
+    }
+
 
     //mostrar empleados
     public function mostrarUsuarioC(){

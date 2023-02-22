@@ -3,11 +3,11 @@ require_once "conexionBD.php";
 
 class registrarM extends ConexionBD{
     function __construct(){
-        $this->tablaBD = 'socio';
-        $this->tablaBD1= 'administrador';
-        $this->tablaBD2= 'chofer';
+        $this->tablaBD= 'equipoinvestigador';
+        $this->tablaBD1= 'jurado';
+
     }
-// REGISTRAR SOCIOS
+// REGISTRAR 
     public function registrarUsuariosM($datosC){
         $cBD = $this->conectarBD();
         $nombr = $datosC['nombre'];
@@ -16,6 +16,7 @@ class registrarM extends ConexionBD{
         $pw_tem = $datosC['contraseña'];
         $emai = $datosC['email'];
         $perfi = $datosC['perfil'];
+        $escue = $datosC['EscuelaProfesional_idEscuelaProfesional'];
 
  
 
@@ -27,36 +28,47 @@ class registrarM extends ConexionBD{
         $email = mysql_entities_fix_string($cBD,$emai);
         $perfil = mysql_entities_fix_string($cBD,$perfi);
 
-        $password = password_hash($pw_temp, PASSWORD_DEFAULT);
+        $escuela = mysql_entities_fix_string($cBD,$escue);
 
+        $password = password_hash($pw_temp, PASSWORD_DEFAULT);
+        
         $query = "INSERT INTO $this->tablaBD VALUES 
-            (NULL,'$nombre','$apellido','$username','$password',null,null,null,null,'$email',null,1,'$perfil')";
+            (NULL,'$nombre','$apellido','$username','$password','$perfil',null,null,null,null,null,null,'$email','$escuela',null,null)";
 
         $result = $cBD->query($query);
         return $result;
     }
-// REGISTRAR ADMINISTRADORES
+// REGISTRAR JURADOS
 
-public function registrarUsuarios1M($datosC){
+public function registrarJuradoC($datosC){
     $cBD = $this->conectarBD();
     $nombr = $datosC['nombre'];
     $apellid = $datosC['apellido'];
     $usernam = $datosC['usuario'];
     $pw_tem = $datosC['contraseña'];
-    $emai = $datosC['email'];
     $perfi = $datosC['perfil'];
+    $dni = $datosC['dni'];
+    $profesion = $datosC['tipo_profesion'];
+    $gener = $datosC['sexo'];
+    $emai = $datosC['email'];
+    $escue = $datosC['EscuelaProfesional_idEscuelaProfesional'];
+    
 
     $nombre = mysql_entities_fix_string($cBD,$nombr);
     $apellido = mysql_entities_fix_string($cBD,$apellid);
     $username = mysql_entities_fix_string($cBD,$usernam);
     $pw_temp = mysql_entities_fix_string($cBD,$pw_tem);
-    $email = mysql_entities_fix_string($cBD,$emai);
     $perfil = mysql_entities_fix_string($cBD,$perfi);
+    $dni1 = mysql_entities_fix_string($cBD,$dni);
+    $genero = mysql_entities_fix_string($cBD,$gener);
+    $email = mysql_entities_fix_string($cBD,$emai);
+    $escuela = mysql_entities_fix_string($cBD,$escue);
 
     $password = password_hash($pw_temp, PASSWORD_DEFAULT);
 
     $query = "INSERT INTO $this->tablaBD1 VALUES 
-        (NULL,'$nombre','$apellido','$username','$password','$perfil',null,null,null,null,'$email',1)";
+        (NULL,'$nombre','$apellido','$username','$password','$perfil','$dni1','$profesion','$genero','$email','$escuela')";
+
 
     $result = $cBD->query($query);
     return $result;

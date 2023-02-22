@@ -22,8 +22,14 @@
   <link href="Vistas\assets\css\style.css" rel="stylesheet">
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
-
+  
 </head>
+<?php
+// Desactivar toda las notificaciónes del PHP
+
+error_reporting(0);
+
+?>
 <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
 	<?php
 		include 'Modulos/menu.php';
@@ -58,13 +64,22 @@
 <script src="Vistas\assets\js\cryptocurrency.js"> </script>
 
 <script src="Vistas\assets\js\jquery.steps.min.js"> </script>
-<script src="Vistas\assets\js\form-wizard.js"> </script>
+<script src="Vistas\Modulos\form-wizard.js"> </script>
 <!-- Page Specific Scripts Finish -->
 
 <!-- Mystic core JavaScript -->
 <script src="Vistas\assets\js\framework.js"></script>
-
 <!-- Settings -->
 <script src="Vistas\assets\js\settings.js"></script>
+
+<script src="Vistas\assets\js\jquery.min.js"></script>
+
+<script src="Vistas\Modulos\consulta.js"> </script>
+
+
+  <!-- Page Specific Scripts Start -->
+  <script src="Vistas\assets\js\datatables.min.js"> </script>
+  <script src="Vistas\Modulos\data-tables.js"> </script>
+
 </body>
 </html>

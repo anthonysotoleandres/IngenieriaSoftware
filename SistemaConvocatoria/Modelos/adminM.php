@@ -4,8 +4,10 @@
     class AdminM extends ConexionBD{
         public function IngresoM($datosC){
             $cBD = $this->conectarBD();
-            $tablaBD1 = "socio";
             $tablaBD = "administrador";
+            $tablaBD1 = "equipoinvestigador";
+            $tablaBD2 = "jurado";
+            
            
 
             $usuario = $datosC['usuario'];
@@ -15,7 +17,7 @@
             $pw_temp = mysql_entities_fix_string($cBD, $clave);
             $pw_perfil = mysql_entities_fix_string($cBD, $perfil);
             
-            if($pw_perfil =='socio'){
+            if($pw_perfil =='docente'){
                 $query = "SELECT * FROM $tablaBD1
                 WHERE usuario='$un_temp' AND perfil='$pw_perfil'";
                 $result = $cBD->query($query);
@@ -28,7 +30,7 @@
                     if (password_verify($pw_temp, $rowp[4])) 
                     {   
                         $query = "SELECT * FROM $tablaBD 
-                        WHERE usuario='$un_temp' AND idsocio ='$rowp[0]'";
+                        WHERE usuario='$un_temp' AND idEquipoInvestigador ='$rowp[0]'";
                         $result = $cBD->query($query);
                         return $rowp[0];
                     }
@@ -36,7 +38,7 @@
 
             }
 
-            else{
+            if($pw_perfil =='administrador'){
 
                 $query = "SELECT * FROM $tablaBD
                 WHERE usuario='$un_temp' AND perfil='$pw_perfil'";
@@ -57,6 +59,31 @@
 
                 }
            }
+
+
+            if($pw_perfil =='jurado'){
+
+                $query = "SELECT * FROM $tablaBD2
+                WHERE usuario='$un_temp' AND perfil='$pw_perfil'";
+                $result = $cBD->query($query);
+
+                if ($result->num_rows)
+                {
+                    $row = $result->fetch_array(MYSQLI_NUM);
+                    $result->close();
+        
+                    if (password_verify($pw_temp, $row[4])) 
+                    {   
+                        $query = "SELECT * FROM $tablaBD2 
+                        WHERE usuario='$un_temp' AND idJurado ='$row[0]'";
+                        $result = $cBD->query($query);
+                        return $row[0];
+                    }
+
+                }
+        }           
+
+
 
 
         } 

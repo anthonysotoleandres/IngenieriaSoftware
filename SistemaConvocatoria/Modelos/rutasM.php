@@ -9,6 +9,15 @@ class RutasM{
             $ruta == 'borrar' ||
 
             $ruta == 'proceso_inscripcion' ||
+            $ruta == 'proceso_inscripcion2' ||
+            $ruta == 'proceso_revision' ||
+            $ruta == 'proceso_revision2' ||
+            $ruta == 'proceso_calificacion' ||
+            $ruta == 'preceso_publicacion' ||
+            $ruta == 'registrar_juez' ||
+            $ruta == 'dashboard' ||
+            $ruta == 'cargar' ||
+            $ruta == 'registrar' ||
             $ruta == 'editar')
         {
             $pagina = "Vistas/Modulos/".$ruta. ".php";

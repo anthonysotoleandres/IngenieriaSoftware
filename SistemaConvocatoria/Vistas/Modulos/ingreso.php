@@ -34,7 +34,7 @@ body {
     <h1 class="h3 mb-3 fw-normal">Ingreso</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control"  name="usuarioI" placeholder="name@example.com">
+      <input type="text" class="form-control"  name="usuarioI" placeholder="username">
       <label for="floatingInput">Usuario</label>
     </div>
     <div class="form-floating">
@@ -43,12 +43,17 @@ body {
     </div>
 	<h1 class="h4 mb-3 fw-normal">Elige el Perfil</h1>
 	<select class="form-select " aria-label="Default select example" name="perfilI" >
-		<option value="administrador">Administrador</option>
-                <option value="socio">Responsable</option>
+		            <option value="administrador">Administrador</option>
+                <option value="docente">Docente Investigador</option>
+                <option value="jurado">Jurado</option>
 	</select>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; </p>
+    <p class="mb-0 mt-3 text-center">¿No tienes una cuenta? <a class="btn-link" href="index.php?ruta=registrar">Crear cuenta</a> </p>
   </form>
+  
+
+
 </main>  
   </body>
 </div>
