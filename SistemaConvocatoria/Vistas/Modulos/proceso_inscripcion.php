@@ -1,11 +1,12 @@
 <?php
+if (isset($_POST['tipoPI'])) {
 $registrarC = new procesoInscripcionC();
 $registrarC->procesoInscripcionregistrarC();
 
 $empleados= $registrarC->mostrarEscuelaC();
 $investigacion= $registrarC->mostrarLineaC();
 
-
+}
 ?>
 
       <div class="row">

@@ -31,6 +31,8 @@ class AdminC{
     public function salirC(){
         session_destroy();
         header('location:index.php?ruta=ingreso');
+        exit();
+        ob_end_flush();
     }
 
     public function sesionIniciadaC(){

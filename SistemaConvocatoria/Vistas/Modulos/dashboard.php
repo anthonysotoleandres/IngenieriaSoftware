@@ -94,6 +94,10 @@ $mostrarDocentes= $registrarC->mostrarDocentesC();
                       <th scope="col">DNI</th>
                       <th scope="col">Profesion</th>
                       <th scope="col">Email</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      
+                    
                     
                       
                     </tr>
@@ -101,19 +105,69 @@ $mostrarDocentes= $registrarC->mostrarDocentesC();
                   <tbody>
 
                   <?php foreach($mostrarJurados as $mostrarJurados): ?>
+                    
                         <tr>
+                          
                             <td><img src="Vistas\Modulos\user4.png" alt="people"><?=$mostrarJurados['nombre']?></td>
                             <td><?=$mostrarJurados['apellido']?></td>
                             <td><?=$mostrarJurados['perfil']?></td>
                             <td><?=$mostrarJurados['dni']?></td>
                             <td><?=$mostrarJurados['tipo_profesion']?></td>
                             <td><?=$mostrarJurados['email']?></td>
+                            <td><button class="ms-btn-icon btn-secondary" data-toggle="modal" data-target="#modal-11"><i class="flaticon-pencil"></i></button></td>
+                            <td><a type="button" class="ms-btn-icon btn-danger"><i class="flaticon-trash"></i></a></td> 
                             <td>
+                            
                             
                         </tr>
                     <?php endforeach; ?>
                   </tbody>              
                 </table>
+                
+                
+                <div class="modal fade" id="modal-11" tabindex="-1" role="dialog" aria-labelledby="modal-11">
+                  <div class="modal-dialog modal-dialog-centered modal-min" role="document">
+                    <div class="modal-content">
+
+                      <div class="modal-body text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <i class="flaticon-user d-block"></i>
+                        <h1>Modificar Perfil</h1>
+                        <form method="post">
+                          
+                          <div class="">
+                          <label >Nombre</label>
+                            <input type="text" placeholder="Nombre" class="form-control" name="email" value="">
+                           
+                          </div>
+                          <div class="">
+                          <label >Apellidos</label>
+                            <input type="text" placeholder="Apellidos" class="form-control" name="password" value="">
+                            
+                          </div>
+                          <div class="">
+                          <label >DNI</label>
+                            <input type="number" placeholder="DNI" class="form-control" name="password" value="">
+                            
+                          </div>
+                       
+                        
+                          <div class="">
+                          <label >Email</label>
+                            <input type="email" placeholder="Email Address" class="form-control" name="password" value="">
+                            
+                          </div>
+                          
+                          <button type="submit" class="btn btn-primary shadow-none">Modificar</button>
+                        </form>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ $docentes= $registrarC->mostrarDocentesC();
 
 <div class="ms-panel">
             <div class="ms-panel-header">
-              <h6>Hoverable Rows Datatable</h6>
+              <h6>Resultados Concurso de Proyectos de Investigación Docente Financiado</h6>
             </div>
             <div class="ms-panel-body">
               

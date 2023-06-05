@@ -38,8 +38,9 @@ class procesoInscripcionC {
             
 
             $resultado = $this->procesoInscripcionM->procesoCoinvestigadorM($datosC);
-         
-            header('location: index.php?ruta=proceso_inscripcion2');
+            $url = 'index.php?ruta=proceso_inscripcion2';
+            
+           
 
         }
     }
@@ -58,7 +59,7 @@ class procesoInscripcionC {
     
                 $resultado = $this->procesoInscripcionM->procesoColaboradoresM($datosC);
              
-                header('location: index.php?ruta=proceso_inscripcion2');
+                $url = 'index.php?ruta=proceso_inscripcion2';
     
             }
         }

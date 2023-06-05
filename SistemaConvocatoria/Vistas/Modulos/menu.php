@@ -1,14 +1,13 @@
 
 <?php
+ob_start(); // Habilitar almacenamiento en búfer de salida
 	$adminC = new AdminC();
+  
 ?>
 
-<?php if(!$adminC->sesionIniciadaC()): ?>
-		
-		<!--<a href="index.php?ruta=nuevo_usuario">Registrarce</a></li> -->
-		<!--<li><a href="index.php?ruta=recuperar_contraseña">Recuperar Contraseña</a></li> -->
+<?php if($adminC->sesionIniciadaC()):?>
+  
 
-<?php else:?>
 <!-- Overlays -->
 <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-target="#ms-side-nav" data-toggle="slideLeft"></div>
 <div class="ms-aside-overlay ms-overlay-right ms-toggler" data-target="#ms-recent-activity" data-toggle="slideRight"></div>
@@ -21,7 +20,7 @@
     <a class="text-center" href="index.html"> <img src="Vistas\Modulos\unajma1.png" alt="logo" > </a>
   </div>
 
-  <!-- Navigation -->
+  <!-- Navigation  salir -->
   <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
       <!-- Dashboard -->
       <li class="menu-item">
@@ -79,7 +78,7 @@
 
 
 
-</aside>
+
 
 <!-- Main Content -->
 <main class="body-content">
@@ -123,6 +122,15 @@
     </div>
   </nav>
 
+<?php else:?>
+
+
+
+
+
 <?php endif; ?>
 
 
+<?php
+ob_end_flush(); // Vaciar el búfer de salida y enviar al navegador
+?>

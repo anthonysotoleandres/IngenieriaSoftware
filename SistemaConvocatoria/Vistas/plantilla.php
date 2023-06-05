@@ -27,7 +27,7 @@
 <?php
 // Desactivar toda las notificaciónes del PHP
 
-error_reporting(0);
+//error_reporting(0);
 
 ?>
 <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
@@ -80,6 +80,13 @@ error_reporting(0);
   <!-- Page Specific Scripts Start -->
   <script src="Vistas\assets\js\datatables.min.js"> </script>
   <script src="Vistas\Modulos\data-tables.js"> </script>
+
+  <script src="Vistas\assets\js\promise.min.js"> </script>
+  <script src="Vistas\Modulos\sweet-alerts.js"> </script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
 
 </body>
 </html>
